@@ -1,3 +1,10 @@
 import { Configuration } from "twind";
 
-export default {} as Configuration;
+export default {
+  theme: {
+    fontFamily: {
+      poppins: ["Poppins"],
+      raleway: ["Raleway"],
+    },
+  },
+} as Configuration;
