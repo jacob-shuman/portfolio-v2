@@ -10,7 +10,8 @@
     "@twind/next": "^1.0.7",
     "next": "10.2.3",
     "react": "17.0.2",
-    "react-dom": "17.0.2"
+    "react-dom": "17.0.2",
+    "twind": "^0.16.16"
   },
   "devDependencies": {
     "@netlify/plugin-lighthouse": "^2.1.0",
