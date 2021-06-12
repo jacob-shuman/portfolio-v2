@@ -18,7 +18,6 @@
     "@netlify/plugin-nextjs": "^3.4.2",
     "@types/node": "^15.12.2",
     "@types/react": "^17.0.11",
-    "netlify-plugin-cache-nextjs": "^1.6.1",
     "typescript": "^4.3.2"
   }
 }
