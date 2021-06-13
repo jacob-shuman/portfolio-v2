@@ -1,14 +1,19 @@
 import { tw } from "twind";
 import useTheme from "../hooks/useTheme";
-import { IoSunnyOutline, IoMoonOutline } from "react-icons/io5";
+import {
+  IoSunnyOutline,
+  IoMoonOutline,
+  IoCafeOutline,
+  IoLogoGithub,
+  IoLogoNpm,
+} from "react-icons/io5";
+import React, { useEffect, useState } from "react";
 
 export interface NavContainerProps {}
 
 export const NavContainer: React.FC<NavContainerProps> = ({ children }) => {
   return (
-    <div
-      className={tw`flex flex-row-reverse p-4 justify-between absolute top-0 left-0 w-full`}
-    >
+    <div className={tw`flex p-8 justify-between absolute top-0 left-0 w-full`}>
       {children}
     </div>
   );
@@ -20,30 +25,116 @@ export const NavButton: React.FC<
   React.ClassAttributes<HTMLButtonElement> &
     React.ButtonHTMLAttributes<HTMLButtonElement> &
     NavButtonProps
-> = ({ children, ...props }) => (
-  <button
-    {...props}
-    className={tw`rounded-xl p-2 hover:(outline-none ring(2 offset-2 offset-transparent blue-500)) focus:(outline-none ring(2 offset-2 offset-transparent blue-700))`}
-  >
-    {children}
-  </button>
-);
+> = ({ children, ...props }) => {
+  const { theme } = useTheme();
+
+  return (
+    <button
+      {...props}
+      className={tw(
+        tw`motion-safe:(transition duration-200 ease-in-out hover:(-translate-y-0.5 scale-105) active:(scale-95))`,
+        tw`rounded-lg`,
+        tw`font-semibold font-poppins`,
+
+        tw`rounded-xl p-2 hover:(outline-none) focus:(outline-none)`
+      )}
+    >
+      {children}
+    </button>
+  );
+};
 
 export interface NavProps {}
 
 export const Nav: React.FC<NavProps> = () => {
   const { theme, toggleTheme } = useTheme();
+  const [textTheme, setTextTheme] = useState<string>();
+
+  useEffect(() => {
+    setTextTheme(theme === "light" ? "text-dark-200" : "text-light-100");
+  }, [theme]);
 
   return (
     <NavContainer>
-      <NavButton onClick={() => toggleTheme()}>
-        {theme === "light" && (
-          <IoSunnyOutline className={tw`w-8 h-8 text-black`} />
-        )}
-        {theme === "dark" && (
-          <IoMoonOutline className={tw`w-8 h-8 text-white`} />
-        )}
-      </NavButton>
+      <div>
+        <a href="#">
+          <h1
+            className={tw(
+              textTheme,
+              tw`font-poppins font-bold`,
+              tw`motion-safe:(transition duration-200 ease-in-out hover:(-translate-y-0.5 scale-105) active:(scale-95))`
+            )}
+          >
+            Jacob Shuman
+          </h1>
+        </a>
+      </div>
+
+      <div className={tw`flex space-x-8 items-center`}>
+        <div className={tw`flex space-x-4`}>
+          <NavButton onClick={() => toggleTheme()}>
+            {theme === "light" && (
+              <IoSunnyOutline className={tw(textTheme, tw`w-6 h-6`)} />
+            )}
+            {theme === "dark" && (
+              <IoMoonOutline className={tw(textTheme, tw`w-6 h-6`)} />
+            )}
+          </NavButton>
+
+          <a
+            href="https://www.buymeacoffee.com/jacobshuman"
+            className={tw(
+              tw`motion-safe:(transition duration-200 ease-in-out hover:(-translate-y-0.5 scale-105) active:(scale-95))`,
+              tw`rounded-lg`,
+              tw`font-semibold font-poppins`,
+
+              tw`rounded-xl p-2 hover:(outline-none) focus:(outline-none)`
+            )}
+          >
+            <IoCafeOutline className={tw(textTheme, tw`w-6 h-6`)} />
+          </a>
+
+          <a
+            href="https://www.github.com/jacob-shuman"
+            className={tw(
+              tw`motion-safe:(transition duration-200 ease-in-out hover:(-translate-y-0.5 scale-105) active:(scale-95))`,
+              tw`rounded-lg`,
+              tw`font-semibold font-poppins`,
+
+              tw`rounded-xl p-2 hover:(outline-none) focus:(outline-none)`
+            )}
+          >
+            <IoLogoGithub className={tw(textTheme, tw`w-6 h-6`)} />
+          </a>
+
+          <a
+            href="https://www.npmjs.com/~jacob.shuman"
+            className={tw(
+              tw`motion-safe:(transition duration-200 ease-in-out hover:(-translate-y-0.5 scale-105) active:(scale-95))`,
+              tw`rounded-lg`,
+              tw`font-semibold font-poppins`,
+
+              tw`rounded-xl p-2 hover:(outline-none) focus:(outline-none)`
+            )}
+          >
+            <IoLogoNpm className={tw(textTheme, tw`w-6 h-6`)} />
+          </a>
+        </div>
+
+        <a
+          href="/Jacob-Shuman_Resume.pdf"
+          className={tw(
+            textTheme,
+
+            theme === "light" ? tw`bg-light-100` : tw`bg-dark-100`,
+            tw`motion-safe:(transition duration-200 ease-in-out hover:(-translate-y-0.5 scale-105) active:(scale-95))`,
+            tw`px-12 py-2 rounded-lg`,
+            tw`font-semibold font-poppins`
+          )}
+        >
+          Resume
+        </a>
+      </div>
     </NavContainer>
   );
 };
