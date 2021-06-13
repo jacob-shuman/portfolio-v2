@@ -1,5 +1,4 @@
 import { Project } from "../types/project";
-import ProjectCard from "../components/ProjectCard";
 import { tw } from "twind";
 import useTheme from "../hooks/useTheme";
 import { IoLogoGithub, IoLogoNpm } from "react-icons/io5";
@@ -20,13 +19,13 @@ export default function Home() {
       className={tw(
         tw`flex h-screen w-screen justify-center`,
 
-        theme === "light" ? tw`bg-white` : tw`bg-gray-900`
+        theme === "light" ? tw`bg-light-200` : tw`bg-dark-200`
       )}
     >
       <section className={tw`flex flex-col space-y-4 my-auto text-center`}>
         <div>
           <h1 className={tw`text-6xl font-poppins font-bold text-blue-500`}>
-            Jacob Shuman
+            Hi, I'm Jacob
           </h1>
 
           <h2
@@ -35,7 +34,7 @@ export default function Home() {
               theme === "light" ? tw`text-gray-900` : tw`text-gray-300`
             )}
           >
-            Senior Software Developer
+            Professional Developer, Designer, and Mentor
           </h2>
         </div>
 
@@ -49,14 +48,6 @@ export default function Home() {
           </a>
         </div>
       </section>
-
-      {/* <section className={tw`flex flex-col`}>
-        <h1>Projects</h1>
-
-        {projects.map((project) => (
-          <ProjectCard project={project} />
-        ))}
-      </section> */}
     </main>
   );
 }
