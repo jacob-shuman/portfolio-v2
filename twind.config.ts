@@ -4,6 +4,10 @@ export default {
   theme: {
     extend: {
       colors: {
+        primary: {
+          100: "#489CFF",
+          200: "#4584FF",
+        },
         light: {
           100: "#ffffff",
           200: "#E2E2E2",
