@@ -8,6 +8,7 @@ import {
   IoLogoNpm,
 } from "react-icons/io5";
 import React, { useEffect, useState } from "react";
+import NextImage from "next/image";
 
 export interface NavContainerProps {}
 
@@ -56,19 +57,19 @@ export const Nav: React.FC<NavProps> = () => {
 
   return (
     <NavContainer>
-      <div>
-        <a href="#">
-          <h1
-            className={tw(
-              textTheme,
-              tw`font-poppins font-bold`,
-              tw`motion-safe:(transition duration-200 ease-in-out hover:(-translate-y-0.5 scale-105) active:(scale-95))`
-            )}
-          >
-            Jacob Shuman
-          </h1>
-        </a>
-      </div>
+      <a
+        href="#"
+        className={tw(
+          tw`flex items-center space-x-4`,
+          tw`motion-safe:(transition duration-200 ease-in-out hover:(-translate-y-0.5 scale-105) active:(scale-95))`
+        )}
+      >
+        <NextImage src="/logo.svg" alt="Logo" width={24} height={24} />
+
+        <h1 className={tw(textTheme, tw`font-poppins font-bold`)}>
+          Jacob Shuman
+        </h1>
+      </a>
 
       <div className={tw`flex space-x-8 items-center`}>
         <div className={tw`flex space-x-4`}>
