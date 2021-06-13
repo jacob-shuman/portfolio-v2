@@ -22,15 +22,17 @@ export default function Home() {
         theme === "light" ? tw`bg-light-200` : tw`bg-dark-200`
       )}
     >
-      <section className={tw`flex flex-col space-y-4 my-auto text-center`}>
+      <section
+        className={tw`flex flex-col space-y-4 my-auto font-semibold font-poppins`}
+      >
         <div>
-          <h1 className={tw`text-6xl font-poppins font-bold text-blue-500`}>
+          <h1 className={tw`text-6xl font-bold text-blue-500`}>
             Hi, I'm Jacob
           </h1>
 
           <h2
             className={tw(
-              tw`text-2xl font-italic font-raleway`,
+              tw`text-2xl font-italic`,
               theme === "light" ? tw`text-gray-900` : tw`text-gray-300`
             )}
           >
