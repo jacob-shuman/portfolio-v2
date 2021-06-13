@@ -1,5 +1,4 @@
 import { Project } from "../types/project";
-import ProjectCard from "../components/ProjectCard";
 import { tw } from "twind";
 import useTheme from "../hooks/useTheme";
 import { IoLogoGithub, IoLogoNpm } from "react-icons/io5";
@@ -20,25 +19,31 @@ export default function Home() {
       className={tw(
         tw`flex h-screen w-screen justify-center`,
 
-        theme === "light" ? tw`bg-white` : tw`bg-gray-900`
+        tw`motion-safe:(transition duration-200 ease-in-out)`,
+        theme === "light" ? tw`bg-light-200` : tw`bg-dark-200`
       )}
     >
-      <section className={tw`flex flex-col space-y-4 my-auto text-center`}>
+      <section
+        className={tw`flex flex-col space-y-4 my-auto font-semibold font-poppins`}
+      >
         <div>
-          <h1 className={tw`text-6xl font-poppins font-bold text-blue-500`}>
-            Jacob Shuman
+          <h1 className={tw`text-6xl font-bold text-blue-500`}>
+            Hi, I'm Jacob
           </h1>
 
           <h2
             className={tw(
-              tw`text-2xl font-italic font-raleway`,
+              tw`text-2xl font-italic`,
+
+              tw`motion-safe:(transition duration-200 ease-in-out)`,
               theme === "light" ? tw`text-gray-900` : tw`text-gray-300`
             )}
           >
-            Senior Software Developer
+            Professional Developer, Designer, and Mentor
           </h2>
         </div>
 
+        {/* 
         <div className={tw`flex justify-center space-x-4`}>
           <a href="https://github.com/jacob-shuman/portfolio-v2">
             <IoLogoGithub className={tw`w-8 h-8`} />
@@ -47,16 +52,8 @@ export default function Home() {
           <a href="https://www.npmjs.com/~jacob.shuman">
             <IoLogoNpm className={tw`w-8 h-8`} />
           </a>
-        </div>
+        </div> */}
       </section>
-
-      {/* <section className={tw`flex flex-col`}>
-        <h1>Projects</h1>
-
-        {projects.map((project) => (
-          <ProjectCard project={project} />
-        ))}
-      </section> */}
     </main>
   );
 }
