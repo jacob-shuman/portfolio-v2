@@ -19,6 +19,7 @@ export default function Home() {
       className={tw(
         tw`flex h-screen w-screen justify-center`,
 
+        tw`motion-safe:(transition duration-200 ease-in-out)`,
         theme === "light" ? tw`bg-light-200` : tw`bg-dark-200`
       )}
     >
@@ -33,6 +34,8 @@ export default function Home() {
           <h2
             className={tw(
               tw`text-2xl font-italic`,
+
+              tw`motion-safe:(transition duration-200 ease-in-out)`,
               theme === "light" ? tw`text-gray-900` : tw`text-gray-300`
             )}
           >
@@ -40,6 +43,7 @@ export default function Home() {
           </h2>
         </div>
 
+        {/* 
         <div className={tw`flex justify-center space-x-4`}>
           <a href="https://github.com/jacob-shuman/portfolio-v2">
             <IoLogoGithub className={tw`w-8 h-8`} />
@@ -48,7 +52,7 @@ export default function Home() {
           <a href="https://www.npmjs.com/~jacob.shuman">
             <IoLogoNpm className={tw`w-8 h-8`} />
           </a>
-        </div>
+        </div> */}
       </section>
     </main>
   );
